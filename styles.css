@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: Open Sans, Sans Serif
+}
+
+header {
+  background-color: #404041;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  width: 50%;
+  display: flex;
+}
+
+h1 {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  font-size: 62px;
+  color: #ED458B;
+  line-height: 1px;
+}
+
+span {
+  color: #E6E7E8;
+  font-weight: 200;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 85vh;
+}
+
+.prime-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;r
+}
+
+.number {
+  height: 8%;
+  text-indent: 10px;
+  font-size: 20px;
+  border: 2px solid #E6E7E8;
+  margin-top: 5%;
+}
+
+.number::placeholder {
+  color: #E6E7E8;
+}
+
+.button-container {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  border: none;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 200;
+  color: white;
+  padding: 5px;
+  width: 45%;
+  margin-top: 5%;
+}
+button:hover {
+  background-color: #EB008B;
+}
+
+.guess {
+
+}
+
+.clear {
+
+}
+
+.reset {
+  width: 100%;
+  line-height: 1;
+}
+
+.text-container {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+p {
+  height: ;
+  font-size: 25px;
+}
+
+.guess-text {
+  
+}
+
+.number-guessed {
+  font-size: 200px;
+  color: #ED458B;
+}
