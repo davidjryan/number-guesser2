@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  /*font-size: 58px;*/
 
 }
 
@@ -13,7 +14,7 @@ body {
 header {
   background-color: #404041;
   width: 100%;
-  height: 15vh;
+  height: 10%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -21,17 +22,19 @@ header {
 }
 
 .heading {
-  width: 50%;
+  width: 100%;
+  height: 80%
   display: flex;
+  font-size: 5.0vw;
 }
 
 h1 {
   width: 100%;
-  padding: 0;
+  padding: .25% 0 1%;
   text-align: center;
-  font-size: 62px;
+  font-size: 100%;
   color: #ED458B;
-  line-height: 1px;
+  /*line-height: 1px;*/
 }
 
 span {
@@ -43,19 +46,20 @@ main {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 85vh;
+  height: 90%;
+  font-size: 56px;
 }
 
 .prime-container {
-  width: 50%;
+  width: 42%;
   display: flex;
   flex-direction: column;r
 }
 
 .number {
-  height: 8%;
+  height: 5%;
   text-indent: 10px;
-  font-size: 20px;
+  font-size: 40%;
   border: 2px solid #E6E7E8;
   margin-top: 5%;
 }
@@ -75,17 +79,23 @@ button {
   border: none;
   border-radius: 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 41%;
   font-weight: 200;
   color: white;
+  background-color: grey;
   padding: 5px;
   width: 45%;
   margin-top: 5%;
 }
+
 button:hover {
   background-color: #EB008B;
 }
 
+button[disabled],
+button[disabled]:hover {
+    background: darkgrey;
+}
 .guess {
 
 }
@@ -109,14 +119,51 @@ button:hover {
 
 p {
   height: ;
-  font-size: 25px;
+  font-size: 41%;
 }
 
 .guess-text {
-  
+  margin-top: 5%;
 }
 
 .number-guessed {
-  font-size: 200px;
+  font-size: 333%;
   color: #ED458B;
+}
+
+@media screen and (max-width: 700px) {
+
+  h1 {
+    font-size: 6.5vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+
+  .number-guessed {
+    font-size: 230%
+  }
+}
+
+@media screen and (max-width: 414px) {
+
+  .number {
+    font-size: 24%;
+  }
+
+  button {
+    font-size: 30%;
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+
+  button {
+    font-size: 25%;
+  }
+
+  .number-guessed {
+    font-size: 206%;
+  }
 }

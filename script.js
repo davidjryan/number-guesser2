@@ -8,63 +8,127 @@ NumberGuesser.prototype = {
 
     minNumber: 1,
 
-	  maxNumber: 10,
+    maxNumber: 100,
 
-	  secretNumber: null,
+    secretNumber: null,
 
     totalGuesses: 0,
 
-	init: function(min, max) {
+  init: function(min, max) {
 
-		this.generateNumber();
-
-  },
-
-	generateNumber: function() {
-
-		this.secretNumber = Math.floor(this.minNumber + (Math.random() * this.maxNumber));
+    this.generateNumber();
 
   },
 
-	guess: function(guess) {
+  generateNumber: function() {
 
-        this.totalGuesses++;
+    this.secretNumber = Math.floor(this.minNumber + (Math.random() * this.maxNumber));
 
-		if(guess < this.secretNumber) {
+  },
 
-      //DOM message too low
+  guess: function(guess) {
 
-			return false;
+    this.totalGuesses++;
 
+    if(guess < this.minNumber) {
+
+      $('.answer-text').text("Below min range");
+
+      // return false;
+
+    } else if(guess < this.secretNumber) {
+
+      $('.answer-text').text("Too Low");
+
+    } else if (guess > this.maxNumber) {
+
+      $('.answer-text').text("Above max range");
+
+      // return false;
     } else if (guess > this.secretNumber) {
 
-      //DOM Message too high
-
-			return false;
+      $('.answer-text').text("Too High");
 
     } else {
 
-		//DOM message YOU WIN!
+      $('.answer-text').text("WOOOOOOOO");
 
-			return true;
+      // return true;
 
     }
-	}
+  }
 };
 
+// $(document).ready(function() {
+//
+//   startGame();
+//
+// })
+
+//Overcome locally scoped issue
 var game = new NumberGuesser();
+
+
 
 var guessResult = false;
 
-do {//needs to be do while loop
+$('.guess').prop('disabled', true)
+$('.clear').prop('disabled', true)
+$('.reset').prop('disabled', true)
 
-	var guessStr = $(".number").val()
+$('.number').on('keyup', function() {
 
-	if(guessStr && !isNaN(guessStr)) {
+  $('.guess').prop('disabled', false)
+  $('.clear').prop('disabled', false)
 
-		var guessInt = parseInt(guessStr, 10);
+  if ($('.number').val() === '') {
 
-		guessResult = game.guess(guessInt);
+    $('.guess').prop('disabled', true)
+    $('.clear').prop('disabled', true)
 
-	}
-} while (guessResult === false;);
+  }
+
+})
+
+$('.guess').on('click', function() {
+
+  var guessStr = $(".number").val()
+
+  if(!isNaN(guessStr)) {
+
+    var guessInt = parseInt(guessStr, 10);
+
+    guessResult = game.guess(guessInt);
+
+    $('.number-guessed').text(guessInt);
+
+    $('.reset').prop('disabled', false)
+
+
+  } else {
+
+    $('.number-guessed').text("NaN");
+
+    $('.answer-text').text("Not a number, dummy");
+
+  }
+});
+
+$('.clear').on('click', function() {
+
+  $('.number').val('');
+  $('.guess').prop('disabled', true)
+  $('.clear').prop('disabled', true)
+
+});
+
+$('.reset').on('click', function() {
+
+  game.generateNumber()
+  $('.reset').prop('disabled', true)
+
+  $('.number').val('');
+  $('.guess').prop('disabled', true)
+  $('.clear').prop('disabled', true)
+
+});
