@@ -1,18 +1,18 @@
 NumberGuesser = function(min, max) {
 
-    this.init(min, max);
+  this.init(min, max);
 
 };
 
 NumberGuesser.prototype = {
 
-    minNumber: 1,
+  minNumber: 1,
 
-    maxNumber: 100,
+  maxNumber: 100,
 
-    secretNumber: null,
+  secretNumber: null,
 
-    totalGuesses: 0,
+  totalGuesses: 0,
 
   init: function(min, max) {
 
@@ -90,7 +90,13 @@ $('.number').on('keyup', function() {
 
 })
 
-$('.guess').on('click', function() {
+$('.guess').on('click', guessButton)
+
+$('.clear').on('click', clearDisable)
+
+$('.reset').on('click', resetButton)
+
+function guessButton() {
 
   var guessStr = $(".number").val()
 
@@ -108,27 +114,23 @@ $('.guess').on('click', function() {
   } else {
 
     $('.number-guessed').text("NaN");
-
     $('.answer-text').text("Not a number, dummy");
-
   }
-});
+}
 
-$('.clear').on('click', function() {
-
-  $('.number').val('');
-  $('.guess').prop('disabled', true)
-  $('.clear').prop('disabled', true)
-
-});
-
-$('.reset').on('click', function() {
+function resetButton() {
 
   game.generateNumber()
   $('.reset').prop('disabled', true)
 
+  clearDisable();
+
+}
+
+function clearDisable() {
+
   $('.number').val('');
   $('.guess').prop('disabled', true)
   $('.clear').prop('disabled', true)
 
-});
+}
